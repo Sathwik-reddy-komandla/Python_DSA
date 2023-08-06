@@ -1,4 +1,5 @@
 # return tehe position of the query element in the cards list
+#  the lIst is in Descending Order
 tests=[]
 
 tests.append({
