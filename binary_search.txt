@@ -1,0 +1,20 @@
+Anlalyzing thealgorithms complexity and run times 
+
+==>
+initial size N
+
+iteration 1:
+    size =initial/2 => N/2
+
+iteration 2:    
+    size= initial/4=>N/4
+
+
+iteration k:
+    size= initial/2^k => N/2^k
+
+=>Final length = 1 => (N/2^k) =1
+                   => N=2^k
+                   => k=log(N) >to the base 2
+
+space complecity => O(1)

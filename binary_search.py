@@ -104,12 +104,9 @@ BRUTE FORCE APPROACH
 #     else:
 #         return -1 
 
-# num_times=0
 def locate_card(cards,query):
-    global num_times
     position=0
     while position<len(cards):
-        num_times+=1
         if cards[position] ==query:
                 return position
         position+=1
@@ -118,24 +115,26 @@ def locate_card(cards,query):
 # for test in tests:  
 #     print(test)
 #     print(locate_card(**(test['input'])),test['output'])
-#     print("num times Looped is :",num_times)
 #     print('*'*10)
 
 
-# print(num_times)
 
 # The runtime of the Brute Force Algorithm is of order O(N)
 '''
 Lets try an Efficient Method
 => Binary Search Method
 '''
-
+num_times=0
 def binary_search_method(cards,query):
     lo,hi=0,len(cards)-1
+    global num_times
     while lo<=hi:
+        num_times+=1
+        print("iteration number :",num_times)
+
         mid=(lo+hi)//2
         mid_number=cards[mid]
-        print("lo :",lo, " hi :",hi," mid : ",mid," mid_number :",mid_number)
+        # print("lo :",lo, " hi :",hi," mid : ",mid," mid_number :",mid_number)
         if mid_number==query:
             if mid-1>0 and cards[mid-1]==query:
                 hi=mid-1
@@ -146,8 +145,8 @@ def binary_search_method(cards,query):
         else:
             lo=mid+1
     return -1
-
-for test in tests:
-    print(binary_search_method(**test['input']),test['output'])
+if __name__=='__main__':
+    for test in tests:
+        print(binary_search_method(**test['input']),test['output'])
     
 #  This method takes time of the order O(logn)
